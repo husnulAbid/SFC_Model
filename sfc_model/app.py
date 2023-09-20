@@ -1,9 +1,9 @@
 
 from flask import Flask, jsonify, request
-from meat_consumption import meat_consumption_page
+from data_analysis import data_analysis_page
 
 app = Flask(__name__)
-app.register_blueprint(meat_consumption_page)
+app.register_blueprint(data_analysis_page)
 
 
 @app.route('/')
