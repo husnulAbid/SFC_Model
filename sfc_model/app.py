@@ -1,6 +1,6 @@
 
 from flask import Flask, jsonify, request
-from data_analysis import data_analysis_page
+from data_analysis_page import data_analysis_page
 
 app = Flask(__name__)
 app.register_blueprint(data_analysis_page)
