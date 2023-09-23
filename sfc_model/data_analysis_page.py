@@ -7,7 +7,6 @@ data_analysis_page = Blueprint('data_analysis_page', __name__, template_folder='
 
 
 # sample : {base_url}/analysis/meat_consumption_time?country=NZL&start=1991&end=1995
-
 @data_analysis_page.route('/analysis/meat_consumption_time', methods=['GET'])
 def meat_consumption_pie():
     args = request.args
@@ -22,7 +21,6 @@ def meat_consumption_pie():
 
 
 # sample : {base_url}/analysis/meat_consumption_time/countries
-
 @data_analysis_page.route('/analysis/meat_consumption_time/countries', methods=['GET'])
 def meat_consumption_available_countries():
     available_countries = get_countries()
@@ -31,7 +29,6 @@ def meat_consumption_available_countries():
 
 
 # sample : {base_url}/analysis/meat_consumption_time/start_and_end_year
-
 @data_analysis_page.route('/analysis/meat_consumption_time/start_and_end_year', methods=['GET'])
 def meat_consumption_pie_start_and_end_year():
     available_years = get_available_years()
