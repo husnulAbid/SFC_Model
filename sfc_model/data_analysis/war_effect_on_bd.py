@@ -30,6 +30,20 @@ def get_query_data(metric_name, year_duration):
     else:
         query_metric = 'Gross domestic income (constant LCU)'
 
-    result_dict = df.loc[query_metric].to_dict()
+    data_series_1 = df.loc[query_metric]
+    new_df = pd.DataFrame({'Year':data_series_1.index, 'Value':data_series_1.values})
+    result_list = [row.to_dict() for _, row in new_df.iterrows()]
+
+    result_dict = {}
+    result_dict['result_data'] = result_list
 
     return result_dict
+
+
+# p11 = 'Industry (including construction), value added (constant 2010 US$)'      # IVA
+# p12 = 'Manufacturing, value added (constant 2010 US$)'                          # MVA
+# p21 = 'Exports of goods and services (current US$)'                             # EGS
+# p22 = 'Imports of goods and services (current US$)'                             # IGS
+# p31 = 'GDP per capita (constant 2010 US$)'                                      # GDP
+# p41 = 'Gross national expenditure (constant LCU)'                               # GNE
+# p42 = 'Gross domestic income (constant LCU)'                                    # GDI
