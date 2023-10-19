@@ -6,7 +6,7 @@ dataset_file_name = 'meat_consumption_worldwide.csv'
 
 def read_dataset(dataset_file_name):
     
-    raw_df = pd.read_csv(f'datasets\{dataset_file_name}')
+    raw_df = pd.read_csv(f'datasets/{dataset_file_name}')
     raw_df = raw_df.loc[raw_df['TIME'] <= Current_year] 
 
     return raw_df

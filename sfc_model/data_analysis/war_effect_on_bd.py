@@ -4,7 +4,7 @@ import pandas as pd
 dataset_file_name = 'war_effect_data.csv'
 
 def read_dataset(dataset_file_name):
-    raw_df = pd.read_csv(f'datasets\{dataset_file_name}', sep = ',', skiprows=2)
+    raw_df = pd.read_csv(f'datasets/{dataset_file_name}', sep = ',', skiprows=2)
     return raw_df
 
 
@@ -27,8 +27,19 @@ def get_query_data(metric_name, year_duration):
     
     if metric_name == 'GDP':
         query_metric = 'GDP per capita (constant 2010 US$)'
-    else:
-        query_metric = 'Gross domestic income (constant LCU)'
+    elif metric_name == 'IVA':
+        query_metric = 'Industry (including construction), value added (constant 2010 US$)'
+    elif metric_name == 'MVA':
+        query_metric = 'Manufacturing, value added (constant 2010 US$)'
+    elif metric_name == 'EGS':
+        query_metric = 'Exports of goods and services (current US$)'
+    elif metric_name == 'IGS':
+        query_metric = 'Imports of goods and services (current US$)' 
+    elif metric_name == 'GNE':
+        query_metric = 'Gross national expenditure (constant LCU)'  
+    elif metric_name == 'GDI':
+        query_metric = 'Gross domestic income (constant LCU)' 
+
 
     data_series_1 = df.loc[query_metric]
     new_df = pd.DataFrame({'Year':data_series_1.index, 'Value':data_series_1.values})
@@ -40,10 +51,3 @@ def get_query_data(metric_name, year_duration):
     return result_dict
 
 
-# p11 = 'Industry (including construction), value added (constant 2010 US$)'      # IVA
-# p12 = 'Manufacturing, value added (constant 2010 US$)'                          # MVA
-# p21 = 'Exports of goods and services (current US$)'                             # EGS
-# p22 = 'Imports of goods and services (current US$)'                             # IGS
-# p31 = 'GDP per capita (constant 2010 US$)'                                      # GDP
-# p41 = 'Gross national expenditure (constant LCU)'                               # GNE
-# p42 = 'Gross domestic income (constant LCU)'                                    # GDI
